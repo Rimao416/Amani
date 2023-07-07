@@ -1,16 +1,12 @@
 import React, { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useSwiper } from "swiper/react";
 
 // Import Swiper styles
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-
+import { Navigation, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-
 
 import responsability from "../assets/icones/responsability.png";
 import hug from "../assets/icones/hug.png";
@@ -32,8 +28,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Title from "../components/Title";
 import ContentLayout from "../layouts/ContentLayout";
 import CauseCard from "../components/CauseCard";
-import Testimonials from "../components/Testimonials";
-import testimonials from "../assets/data";
+//import Testimonials from "../components/Testimonials";
+//import testimonials from "../assets/data";
 
 function Accueil() {
   const swiperRef = useRef();
@@ -207,14 +203,18 @@ function Accueil() {
       <section className="testimonials">
         <div className="testimonials__left">
           <Title title="Ce que les gens pensent de nous" />
-        
         </div>
         <div className="testimonials__right">
-        <h2>FDSMLFJSM</h2>
+          <h2>FDSMLFJSM</h2>
           <Swiper
-            onSwiper={(swiper) => {
-              swiperRef.current = swiper;
+            slidesPerView={1}
+            spaceBetween={30}
+            loop={true}
+            pagination={{
+              clickable: true,
             }}
+            navigation={true}
+            modules={[Pagination, Navigation]}
             className="mySwiper"
           >
             <SwiperSlide>Slide 1</SwiperSlide>
