@@ -1,0 +1,27 @@
+.card {
+  width: 280px;
+  height: 280px;
+  &__title {
+    margin-top: 2%;
+    font-size: $default-font-size;
+  }
+  &__logo{
+    transition: transform 0.3s ease;
+  }
+  &:hover &__logo{
+        transform: scale(0.7);
+  }
+  &:not(:last-child) {
+    border-right: 1px solid $gray-color-2;
+  }
+  &__logo {
+    width: 50px;
+    height: 50px;
+  }
+  padding: 10px;
+  font-size: $default-font-size;
+  &__content {
+    margin-top: 2%;
+    color: $second-black-color;
+  }
+}

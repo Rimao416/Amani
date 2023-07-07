@@ -7,9 +7,9 @@
   background-size: cover;
   background-repeat: no-repeat;
   &__navigation {
-          &--toggle{
-        display: none;
-      }
+    &--toggle {
+      display: none;
+    }
     // background-color: red;
     padding: 20px;
     display: flex;
@@ -23,8 +23,7 @@
       display: flex;
       align-items: center;
       li {
-        
-        list-style-type:none;
+        list-style-type: none;
         position: relative;
         font-size: $default-font-size;
 
@@ -42,20 +41,19 @@
         //   background-color: white;
         // }
         a {
-          font-family: 'Poppins';
+          font-family: "Poppins";
           color: $white-color;
           text-decoration: none;
           font-weight: 600;
-          transition: .5s ease;
-          &:hover{
+          transition: 0.5s ease;
+          &:hover {
             color: $color-secondary;
           }
         }
-      &:not(:last-child){
-        margin: 0 20px;
+        &:not(:last-child) {
+          margin: 0 20px;
+        }
       }
-      }
-
     }
   }
   &__body {
@@ -79,24 +77,19 @@
         text-align: left;
         margin-bottom: 2rem;
       }
-      &--sub-title{
+      &--sub-title {
         color: $color-primary;
         font-weight: 500;
         font-size: $default-font-size;
         // font-size: 16px;
         text-transform: capitalize;
       }
-      &--span{
+      &--span {
         color: $color-secondary;
       }
-      &--button{
+      &--button {
         margin-top: 12px;
-        outline: none;
-        border: none;
-        padding: 8px;
-        font-size: $default-font-size;
-        background-color: $color-secondary;
-        color: $white-color;
+        @include boutton($default-font-size-2, $color-secondary);
       }
     }
     &--right {
@@ -119,27 +112,24 @@
 // RESPONSIVES NAVIGATION
 @include respond(tab-port) {
   .header {
-    &__navigation{
-      &--toggle{
+    &__navigation {
+      &--toggle {
         display: block;
         z-index: 100;
         color: white;
         cursor: pointer;
-        &.active{
+        &.active {
           padding: 10px;
           background-color: $color-primary;
           text-align: center;
         }
 
-       
-      
-        svg{
+        svg {
           width: 15px;
           height: 15px;
-        
         }
       }
-      &--invisible{
+      &--invisible {
         display: none;
       }
       &--list {
@@ -161,17 +151,16 @@
         opacity: 0;
         // align-items: stretch;
         text-align: center;
-        transition: .5s ease;
+        transition: 0.5s ease;
         // padding: 80px 0 30px 0;
         margin: 0;
-        &.active{
+        &.active {
           right: 0;
           opacity: 1;
           background-color: $color-primary;
-          
         }
       }
-      &-item{
+      &-item {
         position: absolute;
         width: 100%;
 
@@ -181,19 +170,18 @@
         padding: 10px;
       }
     }
-    &__body{
+    &__body {
       margin: 0;
-      &--left{
+      &--left {
         width: 100%;
         text-align: center;
         margin-left: 0;
-      
       }
-      &--left--title{
+      &--left--title {
         text-align: center;
         // font-size:40px;
       }
-      &--right{
+      &--right {
         display: none;
       }
     }
@@ -201,87 +189,180 @@
 
   // FIN RESPONSIVE HEADER
   // DEBUT RESPONSIVE ABOUT
-  
-
 }
 
-.about{
+// DEBUT ABOUT PAGE
+
+.about {
   display: flex;
   justify-content: space-between;
   width: 90%;
   margin: 5% auto 0;
 
-
-
-  &__left{
+  &__left {
     width: 50%;
     position: relative;
     // background-color: green;
     height: 500px;
   }
-  &__right{
+  &__right {
     width: 50%;
     // background-color: red;
     position: relative;
-    &--title{
+    &--title {
       position: absolute;
       top: 0;
-      color: #ccc;
+      color: $gray-color-4;
+      opacity: 0.3;
       font-size: $extra-font-size;
-      z-index: 1;
+      z-index: 0;
     }
-    &--wrapper{
+    &--wrapper {
       position: relative;
       visibility: visible;
       padding: 45px 25px;
       // background-color: green;
-      font-size: $extra-font-size-3;
-      h1{
-        color: $black-color;
-      }
+      // font-size: $extra-font-size-3;
+      // h1 {
+      //   color: $black-color;
+      //   position: relative;
+      //   &::before {
+      //     content: "";
+      //     position: absolute;
+      //     bottom: 0;
+      //     left: 0;
+      //     margin-top: 3%;
+      //     width: 100px;
+      //     height: 100px;
+      //     border-bottom: 3px solid $color-primary;
+      //   }
+      // }
     }
-    &--wrapper *{
+    &--wrapper * {
       z-index: 100;
     }
-    &--paragraph{
-      font-size: $default-font-size-2;
-      color: #7A7A7A;
-      font-weight: 300;
-
-      &:not(:last-child){
-        margin-bottom: 20px;
-      }
-    }
-
-  }
-
-  &__image--1, &__image--3{
   
-    @include imageSizeCover(185px,257px);
+    
   }
-  &__image--1{
+
+  &__image--1,
+  &__image--3 {
+    @include imageSizeCover(185px, 257px);
+  }
+  &__image--1 {
     position: absolute;
     top: 0;
     left: 0;
     border-right: 5px solid $white-color;
     border-bottom: 5px solid $white-color;
     z-index: 150;
-
   }
-  &__image--3{
+  &__image--3 {
     position: absolute;
     bottom: 0;
     right: 0;
     border-top: 5px solid $white-color;
     border-left: 5px solid $white-color;
   }
-  &__image--2{
-    @include imageSizeCover(273px,361px);
+  &__image--2 {
+    @include imageSizeCover(273px, 361px);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    
   }
 }
+
+// FIN ABOUT
+// DEBUT GOAL
+.goal {
+  width: 90%;
+  margin: 5% auto 0;
+  display: flex;
+  justify-content: space-between;
+  &__left {
+    width: 50%;
+    position: relative;
+  }
+  &__right {
+    width: 50%;
+    text-align: right;
+    position: relative;
+    overflow: hidden;
+    
+    // &:hover {
+    //     filter: blur(10px);
+    // }
+    &--img {
+      width: 255px;
+      height: 410px;
+      object-fit: cover;
+      position: relative;
+      transition: 0.5s ease;
+     &:not(:last-child){
+      margin:0 20px;
+     }
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+// FIN GOAL
+// CAUSES DEBUT
+.causes{
+
+  // width: 90%;
+ margin-top: 5%;
+  position: relative;
+  &__background{
+    position: absolute;
+    top: -1000px;
+    right:0;
+    width: 400px;
+    height: auto;
+    z-index: -1;
+  }
+  h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__box{
+    width: 90%;
+    margin: 5% auto 0;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+
+  }
+}
+
+.testimonials{
+  background: green;
+  display: flex;
+  position: relative;
+  &__arrow{
+    position:relative;
+    &--left{
+        position: absolute;
+        left: 0;
+      }
+      &--right{
+        background-color: pink !important;
+        position: absolute !important;
+        margin-right: 2% !important;
+
+      }
+  }
+  &__right{
+    background-color: red;
+  }
+}
+
+// .swiper-button-prev{
+//   display: none;
+//   color: #ccc !important;
+// }

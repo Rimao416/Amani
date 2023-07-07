@@ -1,13 +1,13 @@
+@import "./sass/abstracts/variables";
 // Ici tu dois importer tous tes outils
 @import "./sass/abstracts/mixins";
 @import "./sass/base/base";
 // @import "./sass/base/utilities";
 // @import "./sass/abstracts/variables";
-// @import "./sass/base/typography";
 // @import "./sass/abstracts/functions";
-// @import "./sass/components/authButton";
-// @import "./sass/components/authsecondscreen";
+@import "./sass/components/causecard";
+@import "./sass/components/title";
 // @import "./sass/components/datepicker";
 // @import "./sass/layouts/authLayout"
-@import "./sass/abstracts/variables";
+@import "./sass/base/typography";
 @import "./sass/pages/accueil"

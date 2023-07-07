@@ -1,0 +1,30 @@
+.title {
+  font-size: $extra-font-size-3;
+  color: $black-color;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: inherit;
+    margin-top: 3%;
+    width: 100px;
+    height: 100px;
+    border-bottom: 3px solid $color-primary;
+  }
+}
+
+  .layout__paragraph {
+    font-size: $default-font-size-2;
+    color: $second-black-color;
+    font-weight: 400;
+    &:nth-child(2) {
+      margin-top: 20px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  .layout__button {
+    @include boutton($default-font-size-2, $color-primary);
+  }

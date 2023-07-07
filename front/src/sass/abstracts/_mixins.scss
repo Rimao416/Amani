@@ -83,3 +83,12 @@ $breakpoint argyement choices:
   background-position: center;
   background-size: cover;
 }
+
+@mixin boutton($font-size, $color) {
+  font-size: $font-size;
+  color: $white-color;
+  background-color: $color;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
