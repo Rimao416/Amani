@@ -1,17 +1,21 @@
 .title {
-  font-size: $extra-font-size-3;
-  color: $black-color;
+  font-size: $extra-font-size-4;
+  line-height: 1em;
+  color: $color-primary;
+  font-weight: bold;
+  
+  
   position: relative;
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: inherit;
-    margin-top: 3%;
-    width: 100px;
-    height: 100px;
-    border-bottom: 3px solid $color-primary;
-  }
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: inherit;
+  //   margin-top: 3%;
+  //   width: 100px;
+  //   height: 100px;
+  //   border-bottom: 3px solid $color-primary;
+  // }
 }
 
   .layout__paragraph {

@@ -1,0 +1,29 @@
+.testimonials{
+    &__card{
+        padding: 50px;
+        position: relative;
+        background-color: $white-color;
+        box-shadow: 0 3px 15px 2px rgba(165, 146, 146, 0.1);
+     
+    }
+    &__quotes{
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        top: -7%;
+        width: 75px;
+        height: 75px;
+
+    }
+    &__comment,&__author{
+        font-size: $default-font-size-2;
+    }
+    &__comment{
+        color: $second-black-color;
+    }
+    &__author{
+        color: $black-color;
+        font-weight: 500;
+        
+    }
+}

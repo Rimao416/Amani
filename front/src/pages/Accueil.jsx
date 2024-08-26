@@ -1,20 +1,28 @@
 import React, { useState, useRef } from "react";
+// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useSwiper } from "swiper/react";
+import causes_img from "../assets/images/causes_img.png";
+import {
+  BiLogoFacebook,
+  BiLogoTwitter,
+  BiLogoGooglePlus,
+  BiLogoInstagram,
+} from "react-icons/bi";
 
 // Import Swiper styles
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-
-
+import { Navigation } from "swiper/modules";
+import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
+// Import Swiper styles
+import "swiper/css";
 
 import responsability from "../assets/icones/responsability.png";
-import hug from "../assets/icones/hug.png";
 import donation from "../assets/icones/donation.png";
+import hug from "../assets/icones/hug.png";
 import community from "../assets/icones/community.png";
 import smile from "../assets/images/smile_6.png";
 import about_1 from "../assets/images/about_1.jpg";
@@ -23,6 +31,7 @@ import about_3 from "../assets/images/about_3.jpg";
 import goal_1 from "../assets/images/Goal_1.jpg";
 import goal_2 from "../assets/images/Goal_4.jpg";
 import africa from "../assets/images/africa.png";
+import contact from "../assets/images/contact.png"
 
 import logo from "../assets/images/logo_amani_s.png";
 import { Link } from "react-router-dom";
@@ -45,18 +54,19 @@ function Accueil() {
     <>
       <section className="header">
         <div className="header__navigation">
-          <div className="header__navigation--left">
-            <img className="header__navigation--logo" src={logo} alt="" />
-          </div>
-
-          <span
+        <span
             className={`header__navigation--toggle ${
               isClicked ? "active" : ""
             }`}
             onClick={handleClick}
           >
-            {isClicked ? <RxCross2 /> : <GiHamburgerMenu />}
+            {/* {isClicked ? <RxCross2 /> : <GiHamburgerMenu />} */}
           </span>
+          <div className="header__navigation--left">
+            <img className="header__navigation--logo" src={logo} alt="" />
+          </div>
+
+          
 
           <ul
             className={`header__navigation--list ${isClicked ? "active" : ""}`}
@@ -104,7 +114,7 @@ function Accueil() {
           </div>
         </div>
       </section>
-      <section className="about">
+       <section className="about">
         <div className="about__left">
           <img src={about_1} alt="Gallerie 1" className="about__image--1" />
           <img src={about_2} alt="Gallerie 2" className="about__image--2" />
@@ -144,11 +154,9 @@ function Accueil() {
         </div>
       </section>
       <section className="goal">
+        <img src={causes_img} className="goal__image" alt="" />
         <div className="goal__left">
-          <ContentLayout
-            titre="Changer le monde, une jeune femme à la fois: Notre parcours vers
-          l'éradication de l'analphabétisme"
-          >
+          <ContentLayout titre="Changer le monde, une jeune femme à la fois">
             <p className="layout__paragraph">
               Nous croyons en un monde où chaque femme a le droit fondamental
               d'apprendre à lire, à écrire et à acquérir les compétences
@@ -204,31 +212,140 @@ function Accueil() {
           />
         </div>
       </section>
+   
+
       <section className="testimonials">
-        <div className="testimonials__left">
-          <Title title="Ce que les gens pensent de nous" />
-        
+        <div className="testimonials__background">
+          <div className="testimonials__background--left"></div>
+          <div className="testimonials__background--right"></div>
         </div>
-        <div className="testimonials__right">
-        <h2>FDSMLFJSM</h2>
-          <Swiper
-            onSwiper={(swiper) => {
-              swiperRef.current = swiper;
-            }}
-            className="mySwiper"
-          >
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 5</SwiperSlide>
-            <SwiperSlide>Slide 6</SwiperSlide>
-            <SwiperSlide>Slide 7</SwiperSlide>
-            <SwiperSlide>Slide 8</SwiperSlide>
-            <SwiperSlide>Slide 9</SwiperSlide>
-          </Swiper>
+        <div className="testimonials__wrapper">
+          <div className="testimonials__left">
+            <Title title="Témoignages" />
+            <span className="testimonials__arrow">
+              <span
+                className="testimonials__arrow--left"
+                onClick={() => swiperRef.current.slidePrev()}
+              >
+                <RiArrowLeftSLine />
+              </span>
+              <span
+                className="testimonials__arrow--right"
+                onClick={() => swiperRef.current.slideNext()}
+              >
+                <RiArrowRightSLine />
+              </span>
+            </span>
+          </div>
+          <div className="testimonials__right">
+            <Swiper
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+              }}
+              slidesPerView={2}
+              spaceBetween={30}
+              autoplay={true}
+              loop={true}
+              pagination={{
+                clickable: true,
+              }}
+              // navigation={true}
+              modules={[Navigation]}
+              className="mySwiper"
+            >
+              {testimonials.map((testimonial) => (
+                <SwiperSlide>
+                  <Testimonials {...testimonial} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </section>
+      
+      <section className="footer">
+        <div className="footer__wrapper">
+          <div className="footer__wrapper--row">
+            <img src={logo} className="footer__header" alt="" />
+            <div className="footer__social">
+              <span className="footer__social--item">
+                <BiLogoFacebook />
+              </span>
+              <span className="footer__social--item">
+                <BiLogoTwitter />
+              </span>
+              <span className="footer__social--item">
+                <BiLogoGooglePlus />
+              </span>
+              <span className="footer__social--item">
+                <BiLogoInstagram />
+              </span>
+            </div>
+          </div>
+          <div className="footer__wrapper--row">
+            <h4 className="footer__header" alt="">
+              Contacts
+            </h4>
+            <ul className="footer__list">
+              <li className="footer__item">
+                Elliott Ave, Parkville VIC 3052, Melbourne Canada
+              </li>
+              <li className="footer__item">Phone: +31 85 964 47 25</li>
+              <li className="footer__item">Email: support@helpo.org</li>
+            </ul>
+          </div>
+          <div className="footer__wrapper--row">
+            <h4 className="footer__header" alt="">
+              Menu & Liens
+            </h4>
+            <ul className="footer__list">
+              <li className="footer__item">
+                <Link to="#" className="footer__item--link">
+                  Accueil
+                </Link>
+              </li>
+              <li className="footer__item">
+                <Link to="#" className="footer__item--link">
+                  A Propos
+                </Link>
+              </li>
+              <li className="footer__item">
+                <Link to="#" className="footer__item--link">
+                  Cause
+                </Link>
+              </li>
+              <li className="footer__item">
+                <Link to="#" className="footer__item--link">
+                  Temoignages
+                </Link>
+              </li>
+              <li className="footer__item">
+                <Link to="#" className="footer__item--link">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="footer__wrapper--row">
+            <h4 className="footer__header" alt="">
+              Dons
+            </h4>
+            <ul className="footer__list">
+              <li className="footer__item">
+                Help Us Change the Lives of Children in World
+              </li>
+              <li className="footer__item">
+                <button className="footer__item--button">Faire un don</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="footer__bottom">
+          <p>© {new Date().getFullYear()} Amani Foundation By Docovery</p>
+
+          <span>© Tous droits reservés</span>
+        </div>
+      </section> 
     </>
   );
 }
